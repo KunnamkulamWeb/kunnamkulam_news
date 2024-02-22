@@ -164,3 +164,7 @@ li {
     height: 80px;
     object-fit: contain;
 }
+
+.share-news{
+    display: block;
+}
