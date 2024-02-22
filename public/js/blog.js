@@ -9,8 +9,8 @@ menuBtn.addEventListener("click", ()=>{
   document.querySelector(".sidenav").style.width = "240px"
 })
 let search = false
-let newsTitle
-let newsBody
+let newsTitle = document.querySelector('.title').value
+let newsBody = document.querySelector('.news-article').value
 const closeNav = () =>{
   document.querySelector(".sidenav").style.width = ""
 }
@@ -97,19 +97,21 @@ db.ref('blogs').limitToLast(6).once('value', (snapshot)=> {
     })
 })
 
+var shareText = `*${newsTitle}*`
+
 function shareOnFacebook(){
-    window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, '_blank');
+    window.open(`https://www.facebook.com/sharer/sharer.php?u= ${shareText} \n \n ${url} _blank`);
 }
 
 function shareOnWhatsapp(){
-    window.open('whatsapp://send?text=' + url, '_blank');
+    window.open(`whatsapp://send?text= ${shareText} \n \n ${url} _blank`);
 }
 function shareOnTwitter() {
-      window.open('https://twitter.com/intent/tweet?url=' + url, '_blank');
+    window.open(`https://twitter.com/intent/tweet?url= ${shareText} \n \n ${url} _blank`);
 }
 
 function shareOnLinkedIn() {
-      window.open('https://www.linkedin.com/shareArticle?url=' + url, '_blank');
+    window.open(`https://www.linkedin.com/shareArticle?url= ${shareText} \n \n ${url} _blank`);
 }
 function shareViaEmail() {
       var subject = newsTitle
